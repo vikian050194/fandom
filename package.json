@@ -4,15 +4,17 @@
   "version": "0.1.0",
   "private": true,
   "main": "build/bundle.js",
-  "module": "src/index.js",
   "files": [
-    "src"
+    "build"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vikian050194/fandom.git"
+    "url": "https://github.com/vikian050194/fandom.git"
   },
-  "author": "vikian050194",
+  "author": {
+    "name": "Kirill Vinogradov",
+    "email": "vikian050194dev@gmail.com"
+  },
   "keywords": [
     "dom"
   ],
@@ -20,10 +22,19 @@
   "bugs": {
     "url": "https://github.com/vikian050194/fandom/issues"
   },
-  "homepage": "https://github.com/vikian050194/fandom#readme",
+  "homepage": "https://github.com/vikian050194/fandom",
   "scripts": {
-    "build": "webpack",
-    "release": "webpack --config webpack.production.config.js",
+    "cleanup": "rm -rf build",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags ",
+    "prebuild-dev": "npm run cleanup",
+    "build-dev": "webpack --config webpack.config.js",
+    "prebuild-prod": "npm run cleanup",
+    "build-prod": "webpack --config webpack.production.config.js",
+    "publish-rc": "npm run build-prod && npm version prerealese && npm publish",
+    "publish-patch": "npm run build-prod && npm version patch && npm publish",
+    "publish-minor": "npm run build-prod && npm version minor && npm publish",
+    "publish-major": "npm run build-prod && npm version major && npm publish",
     "test": "mocha ./tests/**/*-tests.js --require @babel/register",
     "cover": "nyc --reporter=html npm run test"
   },
