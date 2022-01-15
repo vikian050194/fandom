@@ -2,6 +2,8 @@
 
 [![MIT license][license-badge]][license-url]
 [![Maintenance status][status-badge]][status-url]
+[![NPM version][npm-badge]][npm-url]
+[![Downloads per week][downloads-badge]][downloads-url]
 
 ## Attention
 
@@ -45,3 +47,9 @@ container.append(...this.nb.build());
 
 [license-url]: https://github.com/vikian050194/fandom/blob/master/LICENSE
 [license-badge]: https://img.shields.io/github/license/vikian050194/fandom.svg
+
+[npm-url]: https://www.npmjs.com/package/fandom
+[npm-badge]: https://img.shields.io/npm/v/fandom
+
+[downloads-url]: https://www.npmjs.com/package/fandom
+[downloads-badge]: https://img.shields.io/npm/dw/fandom
