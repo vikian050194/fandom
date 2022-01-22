@@ -6,7 +6,7 @@ export class NodeBuilder {
     }
 
     _createElement(tag, attributes) {
-        const element = document.createElement(tag);
+        const element = window.document.createElement(tag);
 
         for (let key in attributes) {
             element.setAttribute(key, attributes[key]);
@@ -58,7 +58,7 @@ export class NodeBuilder {
     }
 
     withText(text) {
-        const content = document.createTextNode(text);
+        const content = window.document.createTextNode(text);
         this.state.index.appendChild(content);
 
         return this;
