@@ -4,6 +4,7 @@ export class Node {
         this.attributes = attributes;
         this.nodes = nodes;
         this.text = null;
+        this.handlers = new Map();
     }
 }
 
@@ -36,7 +37,7 @@ export class State {
     }
 
     handle(action, handler){
-        this.index.addEventListener(action, handler);
+        this.index.handlers.set(action, handler);
     }
 
     jump(){

@@ -6,14 +6,23 @@ export class TreeConverter {
             const element = this._createElement(node.tag, node.attributes);
             elements.push(element);
 
-            if(node.text){
+            // TODO extract method
+            if (node.text) {
                 const text = this._createText(node.text);
                 element.appendChild(text);
             }
 
-            if(node.nodes.length){
+            // TODO extract method + refactoring (do not use recursion)
+            if (node.nodes.length) {
                 const children = this.convert(node.nodes);
                 element.appendChild(...children);
+            }
+
+            // TODO extract method
+            if (node.handlers.size) {
+                for (const [action, handler] of node.handlers) {
+                    element.addEventListener(action, handler);
+                }
             }
         }
 
@@ -32,16 +41,6 @@ export class TreeConverter {
 
     _createText(value) {
         return window.document.createTextNode(value);
-    }
-
-    _addHandler(action, handler) {
-        this.state.handle(action, handler);
-    }
-
-    onClick(handler) {
-        this._addHandler("click", handler);
-
-        return this;
     }
 
     wrap(wrapper) {

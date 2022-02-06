@@ -20,6 +20,22 @@ export class TreeBuilder {
         return this;
     }
 
+    _addHandler(action, handler) {
+        this.state.handle(action, handler);
+    }
+
+    onClick(handler) {
+        this._addHandler("click", handler);
+
+        return this;
+    }
+
+    onHover(handler) {
+        this._addHandler("mouseenter", handler);
+
+        return this;
+    }
+
     close(){
         this.state.jump();
         return this;

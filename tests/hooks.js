@@ -6,11 +6,19 @@ export const mochaHooks = {
             document: {
                 createElement: tag => {
                     const children = [];
-                    return {
+                    const mockElement = {
                         tag,
                         children,
                         appendChild: (...x) => children.push(...x)
                     };
+                    
+                    const addEventListener = (action, handler) => {
+                        mockElement[`on${action}`] = handler;
+                    };
+
+                    mockElement.addEventListener = addEventListener;
+
+                    return mockElement;
                 },
                 createTextNode: value => {
                     return { tag: "text", value };
