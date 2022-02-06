@@ -1,6 +1,6 @@
 import assert from "assert";
 
-describe("Two levels", function () {
+describe("Builder: two levels", function () {
     it("div into div", function () {
         const actual = builder.div().div().close().close().build();
 

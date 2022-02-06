@@ -6,6 +6,11 @@ export class TreeConverter {
             const element = this._createElement(node.tag, node.attributes);
             elements.push(element);
 
+            if(node.text){
+                const text = this._createText(node.text);
+                element.appendChild(text);
+            }
+
             if(node.nodes.length){
                 const children = this.convert(node.nodes);
                 element.appendChild(...children);
@@ -25,15 +30,12 @@ export class TreeConverter {
         return element;
     }
 
-    withText(text) {
-        const content = window.document.createTextNode(text);
-        this.state.index.appendChild(content);
-
-        return this;
+    _createText(value) {
+        return window.document.createTextNode(value);
     }
 
     _addHandler(action, handler) {
-        this.state.index.addEventListener(action, handler);
+        this.state.handle(action, handler);
     }
 
     onClick(handler) {
@@ -42,9 +44,9 @@ export class TreeConverter {
         return this;
     }
 
-    wrap($wrapper) {
+    wrap(wrapper) {
         for (let element of this.state.elements) {
-            $wrapper.appendChild(element);
+            wrapper.appendChild(element);
         }
     }
 }

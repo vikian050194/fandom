@@ -1,6 +1,6 @@
 import assert from "assert";
 
-describe("Just", function () {
+describe("Builder: just", function () {
     it("custom", function () {
         const actual = builder.just("custom").build();
 

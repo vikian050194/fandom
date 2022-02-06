@@ -15,6 +15,11 @@ export class TreeBuilder {
         return this;
     }
 
+    text(value){
+        this.state.setText(value);
+        return this;
+    }
+
     close(){
         this.state.jump();
         return this;

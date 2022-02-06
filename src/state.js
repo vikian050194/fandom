@@ -3,6 +3,7 @@ export class Node {
         this.tag = tag;
         this.attributes = attributes;
         this.nodes = nodes;
+        this.text = null;
     }
 }
 
@@ -28,6 +29,14 @@ export class State {
         this.add(node);
         this.stack.push(this.index);
         this.index = node;
+    }
+
+    setText(value){
+        this.index.text = value;
+    }
+
+    handle(action, handler){
+        this.index.addEventListener(action, handler);
     }
 
     jump(){

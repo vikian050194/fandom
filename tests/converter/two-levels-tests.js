@@ -1,7 +1,7 @@
 import assert from "assert";
 import { Node } from "../../src/state";
 
-describe("Two levels", function () {
+describe("Converter: two levels", function () {
     it("div into div", function () {
         const firstDiv = new Node("div");
         const secondDiv = new Node("div");

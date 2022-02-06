@@ -1,7 +1,22 @@
 import assert from "assert";
 import { Node } from "../../src/state";
 
-describe("One level", function () {
+describe("Converter: one level", function () {
+    it("one div", function () {
+        const nodes = [
+            new Node("div")
+        ];
+
+        const actual = converter.convert(nodes);
+
+        assert.equal(actual.length, 1);
+
+        const [domNode] = actual;
+
+        assert.equal(domNode.tag, "div");
+        assert.equal(domNode.children.length, 0);
+    });
+    
     it("two div", function () {
         const nodes = [
             new Node("div"),

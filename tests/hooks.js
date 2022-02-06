@@ -11,6 +11,9 @@ export const mochaHooks = {
                         children,
                         appendChild: (...x) => children.push(...x)
                     };
+                },
+                createTextNode: value => {
+                    return { tag: "text", value };
                 }
             }
         };

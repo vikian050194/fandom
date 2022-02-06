@@ -1,7 +1,7 @@
 import assert from "assert";
 import { Node } from "../../src/state";
 
-describe("Just", function () {
+describe("Converter: just", function () {
     it("custom", function () {
         const node = new Node("custom");
 
