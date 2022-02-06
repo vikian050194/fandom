@@ -1,0 +1,6 @@
+{
+    "globals": {
+        "builder": "readonly",
+        "converter": "readonly"
+    }
+}

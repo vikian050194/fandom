@@ -13,7 +13,7 @@
   },
   "author": {
     "name": "Kirill Vinogradov",
-    "email": "vikian050194dev@gmail.com"
+    "email": "vikian050194@gmail.com"
   },
   "keywords": [
     "dom"
@@ -35,7 +35,7 @@
     "publish-patch": "npm run release && npm version patch && npm publish",
     "publish-minor": "npm run release && npm version minor && npm publish",
     "publish-major": "npm run release && npm version major && npm publish",
-    "test": "mocha ./tests/**/*-tests.js --require @babel/register",
+    "test": "mocha ./tests/**/*-tests.js",
     "cover": "nyc --reporter=html npm run test"
   },
   "devDependencies": {

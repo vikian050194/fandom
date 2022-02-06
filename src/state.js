@@ -1,21 +1,50 @@
+export class Node {
+    constructor(tag, attributes = {}, nodes = []) {
+        this.tag = tag;
+        this.attributes = attributes;
+        this.nodes = nodes;
+        this.text = null;
+        this.handlers = new Map();
+    }
+}
+
+const ROOT_TAG = "ROOT";
+
+export class RootNode extends Node {
+    constructor() {
+        super(ROOT_TAG);
+    }
+}
+
 export class State {
-    constructor(index, elements = []) {
-        this.index = index;
-        this.elements = elements;
+    constructor() {
+        this.index = new RootNode();
+        this.stack = [];
     }
 
-    addElement(element) {
-        const index = element;
-        const elements = [...this.elements, element];
-
-        return new State(index, elements);
+    add(node) {
+        this.index.nodes.push(node);
     }
 
-    insertElement(element) {
-        const index = element;
-        this.index.appendChild(element);
-
-        return new State(index, this.elements);
+    insert(node) {
+        this.add(node);
+        this.stack.push(this.index);
+        this.index = node;
     }
 
+    setText(value){
+        this.index.text = value;
+    }
+
+    handle(action, handler){
+        this.index.handlers.set(action, handler);
+    }
+
+    jump(){
+        this.index = this.stack.pop();
+    }
+
+    get isRoot(){
+        return this.stack.length === 0;
+    }
 }

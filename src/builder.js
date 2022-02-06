@@ -1,75 +1,27 @@
-import { State } from "./state";
+import { State, Node } from "./state";
 
-export class NodeBuilder {
+export class TreeBuilder {
     constructor() {
         this.state = new State();
     }
 
-    _createElement(tag, attributes) {
-        const element = document.createElement(tag);
-
-        for (let key in attributes) {
-            element.setAttribute(key, attributes[key]);
-        }
-
-        return element;
-    }
-
-    _addElement(tag, attributes) {
-        const element = this._createElement(tag, attributes);
-        this.state = this.state.addElement(element);
-
+    just(tag, attributes) {
+        this.state.add(new Node(tag, attributes));
         return this;
     }
 
-    reset() {
-        this.state = new State();
-    }
-
-    addElement(element) {
-        this.state = this.state.addElement(element);
-
+    open(tag, attributes){
+        this.state.insert(new Node(tag, attributes));
         return this;
     }
 
-    _insertElement(tag, attributes) {
-        const element = this._createElement(tag, attributes);
-        this.state = this.state.insertElement(element);
-
+    text(value){
+        this.state.setText(value);
         return this;
-    }
-
-    insertElement(element) {
-        this.state = this.state.insertElement(element);
-
-        return this;
-    }
-
-    div(attributes) {
-        return this._addElement("div", attributes);
-    }
-
-    span(attributes) {
-        return this._addElement("span", attributes);
-    }
-
-    h1(attributes) {
-        return this._addElement("h1", attributes);
-    }
-
-    withText(text) {
-        const content = document.createTextNode(text);
-        this.state.index.appendChild(content);
-
-        return this;
-    }
-
-    withDiv(attributes) {
-        return this._insertElement("div", attributes);
     }
 
     _addHandler(action, handler) {
-        this.state.index.addEventListener(action, handler);
+        this.state.handle(action, handler);
     }
 
     onClick(handler) {
@@ -78,13 +30,44 @@ export class NodeBuilder {
         return this;
     }
 
-    build() {
-        return this.state.elements;
+    onHover(handler) {
+        this._addHandler("mouseenter", handler);
+
+        return this;
     }
 
-    wrap($wrapper) {
-        for (let element of this.state.elements) {
-            $wrapper.appendChild(element);
+    close(){
+        this.state.jump();
+        return this;
+    }
+
+    build() {
+        if(this.state.isRoot){
+            const result = this.state.index.nodes;
+            this.state = new State();
+            return result;
         }
+        
+        throw new Error("it is not root");
+    }
+
+    div(attributes) {
+        this.open("div", attributes);
+        return this;
+    }
+
+    span(attributes) {
+        this.open("span", attributes);
+        return this;
+    }
+
+    h1(attributes) {
+        this.open("h1", attributes);
+        return this;
+    }
+
+    input(attributes) {
+        this.just("input", attributes);
+        return this;
     }
 }

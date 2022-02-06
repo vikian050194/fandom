@@ -28,18 +28,26 @@ Let's make something lightweight and nice
 ## Usage
 
 ```javascript
-import { NodeBuilder } from "fandom";
+import { TreeBuilder, TreeConverter } from "fandom";
 
-const nb = new NodeBuilder();
+const container = document.querySelector("#root");
+
+const builder = new TreeBuilder();
+const converter = new TreeConverter();
 const elements = [3, 14, 15, 9, 26];
 
+builder.div({ class: "list" });
+
 for (let i = 0; i < elements.length; i++) {
-    nb.div({ id: elements[i] }).withText(`number ${elements[i]}`);
+    builder.div({ id: elements[i] }).text(`number ${elements[i]}`).close();
 }
 
-const container = document.querySelector("#elements");
+builder.close();
 
-container.append(...this.nb.build());
+const model = builder.build();
+const children = converter.convert(model);
+
+container.append(...children);
 ```
 
 [status-url]: https://github.com/vikian050194/fandom/pulse

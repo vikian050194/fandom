@@ -17,8 +17,7 @@
             "args": [
                 "${file}",
                 "--colors",
-                "--no-timeouts",
-                "--require", "@babel/register"
+                "--no-timeouts"
             ],
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": null,
