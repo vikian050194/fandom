@@ -1,5 +1,6 @@
 {
     "globals": {
-        "nb": "readonly"
+        "builder": "readonly",
+        "converter": "readonly"
     }
 }

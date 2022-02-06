@@ -1,11 +1,16 @@
-import { NodeBuilder } from "../src";
+import { TreeBuilder, TreeConverter } from "../src";
 
 export const mochaHooks = {
     beforeAll(done) {
         global.window = {
             document: {
                 createElement: tag => {
-                    return { tag };
+                    const children = [];
+                    return {
+                        tag,
+                        children,
+                        appendChild: (...x) => children.push(...x)
+                    };
                 }
             }
         };
@@ -14,7 +19,8 @@ export const mochaHooks = {
     },
 
     beforeEach(done) {
-        global.nb = new NodeBuilder();
+        global.builder = new TreeBuilder();
+        global.converter = new TreeConverter();
 
         done();
     }

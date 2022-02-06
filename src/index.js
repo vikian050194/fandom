@@ -1,1 +1,2 @@
-export { NodeBuilder } from "./builder";
+export { TreeBuilder } from "./builder";
+export { TreeConverter } from "./converter";

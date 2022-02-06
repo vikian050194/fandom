@@ -30,16 +30,16 @@ Let's make something lightweight and nice
 ```javascript
 import { NodeBuilder } from "fandom";
 
-const nb = new NodeBuilder();
+const builder = new NodeBuilder();
 const elements = [3, 14, 15, 9, 26];
 
 for (let i = 0; i < elements.length; i++) {
-    nb.div({ id: elements[i] }).withText(`number ${elements[i]}`);
+    builder.div({ id: elements[i] }).withText(`number ${elements[i]}`);
 }
 
 const container = document.querySelector("#elements");
 
-container.append(...this.nb.build());
+container.append(...this.builder.build());
 ```
 
 [status-url]: https://github.com/vikian050194/fandom/pulse
