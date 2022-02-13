@@ -1,6 +1,8 @@
 {
     "globals": {
-        "builder": "readonly",
-        "converter": "readonly"
+        "couturier": "readonly",
+        "convert": "readonly",
+        "insert": "readonly",
+        "replace": "readonly"
     }
 }

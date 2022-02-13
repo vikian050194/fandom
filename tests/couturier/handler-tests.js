@@ -1,9 +1,9 @@
 import assert from "assert";
 
-describe("Builder: handler", function () {
+describe("couturier: handler", function () {
     it("click", function () {
         const clickHandler = () => {};
-        const actual = builder.div().onClick(clickHandler).close().build();
+        const actual = couturier.div().onClick(clickHandler).close().done();
 
         assert.equal(actual.length, 1);
 
@@ -18,7 +18,7 @@ describe("Builder: handler", function () {
 
     it("hover", function () {
         const hoverHandler = () => {};
-        const actual = builder.div().onHover(hoverHandler).close().build();
+        const actual = couturier.div().onHover(hoverHandler).close().done();
 
         assert.equal(actual.length, 1);
 

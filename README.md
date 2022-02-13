@@ -29,26 +29,25 @@ Let's make something lightweight and nice
 ## Usage
 
 ```javascript
-import { TreeBuilder, TreeConverter } from "fandom";
+import { Couturier, convert, insert, replace } from "fandom";
 
 const container = document.querySelector("#root");
 
-const builder = new TreeBuilder();
-const converter = new TreeConverter();
+const couturier = new Couturier();
 const elements = [3, 14, 15, 9, 26];
 
-builder.div({ class: "list" });
+couturier.div({ class: "list" });
 
 for (let i = 0; i < elements.length; i++) {
-    builder.div({ id: elements[i] }).text(`number ${elements[i]}`).close();
+    couturier.div({ id: elements[i] }).text(`number ${elements[i]}`).close();
 }
 
-builder.close();
+couturier.close();
 
-const model = builder.build();
-const children = converter.convert(model);
+const model = couturier.done();
+const domElements = convert(model);
 
-container.append(...children);
+replace(container, domElements);
 ```
 
 [status-url]: https://github.com/vikian050194/fandom/pulse

@@ -1,8 +1,8 @@
 import assert from "assert";
 
-describe("Builder: one level", function () {
+describe("couturier: one level", function () {
     it("custom", function () {
-        const actual = builder.open("custom").close().build();
+        const actual = couturier.open("custom").close().done();
 
         assert.equal(actual.length, 1);
 
@@ -14,7 +14,7 @@ describe("Builder: one level", function () {
     });
 
     it("div", function () {
-        const actual = builder.div().close().build();
+        const actual = couturier.div().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -26,7 +26,7 @@ describe("Builder: one level", function () {
     });
 
     it("span", function () {
-        const actual = builder.span().close().build();
+        const actual = couturier.span().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -38,7 +38,7 @@ describe("Builder: one level", function () {
     });
 
     it("h1", function () {
-        const actual = builder.h1().close().build();
+        const actual = couturier.h1().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -50,7 +50,7 @@ describe("Builder: one level", function () {
     });
 
     it("two div", function () {
-        const actual = builder.div().close().div().close().build();
+        const actual = couturier.div().close().div().close().done();
 
         assert.equal(actual.length, 2);
 
@@ -61,7 +61,7 @@ describe("Builder: one level", function () {
     });
 
     it("div and span", function () {
-        const actual = builder.div().close().span().close().build();
+        const actual = couturier.div().close().span().close().done();
 
         assert.equal(actual.length, 2);
 

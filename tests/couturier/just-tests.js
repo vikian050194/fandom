@@ -1,8 +1,8 @@
 import assert from "assert";
 
-describe("Builder: just", function () {
+describe("couturier: just", function () {
     it("custom", function () {
-        const actual = builder.just("custom").build();
+        const actual = couturier.just("custom").done();
 
         assert.equal(actual.length, 1);
 
@@ -12,7 +12,7 @@ describe("Builder: just", function () {
     });
     
     it("input", function () {
-        const actual = builder.input().build();
+        const actual = couturier.input().done();
 
         assert.equal(actual.length, 1);
 

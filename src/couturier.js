@@ -1,6 +1,6 @@
 import { State, Node } from "./state";
 
-export class TreeBuilder {
+export class Couturier {
     constructor() {
         this.state = new State();
     }
@@ -41,7 +41,7 @@ export class TreeBuilder {
         return this;
     }
 
-    build() {
+    done() {
         if(this.state.isRoot){
             const result = this.state.index.nodes;
             this.state = new State();

@@ -1,7 +1,6 @@
 import assert from "assert";
-import { Node } from "../../src/state";
 
-describe("Converter: two levels", function () {
+describe("convert: two levels", function () {
     it("div into div", function () {
         const firstDiv = new Node("div");
         const secondDiv = new Node("div");
@@ -9,7 +8,7 @@ describe("Converter: two levels", function () {
 
         const nodes = [firstDiv];
 
-        const actual = converter.convert(nodes);
+        const actual = convert(nodes);
 
         assert.equal(actual.length, 1);
 
@@ -27,7 +26,7 @@ describe("Converter: two levels", function () {
 
         const nodes = [div];
 
-        const actual = converter.convert(nodes);
+        const actual = convert(nodes);
 
         assert.equal(actual.length, 1);
 
@@ -46,7 +45,7 @@ describe("Converter: two levels", function () {
 
         const nodes = [div];
 
-        const actual = converter.convert(nodes);
+        const actual = convert(nodes);
 
         assert.equal(actual.length, 1);
 

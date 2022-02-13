@@ -1,7 +1,6 @@
 import assert from "assert";
-import { Node } from "../../src/state";
 
-describe("Converter: handler", function () {
+describe("convert: handler", function () {
     it("click", function () {
         const div = new Node("div");
         const clickHandler = () => {};
@@ -9,7 +8,7 @@ describe("Converter: handler", function () {
 
         const nodes = [div];
 
-        const actual = converter.convert(nodes);
+        const actual = convert(nodes);
 
         assert.equal(actual.length, 1);
 
@@ -25,7 +24,7 @@ describe("Converter: handler", function () {
 
         const nodes = [div];
 
-        const actual = converter.convert(nodes);
+        const actual = convert(nodes);
 
         assert.equal(actual.length, 1);
 
