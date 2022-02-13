@@ -36,7 +36,8 @@
     "publish-minor": "npm run release && npm version minor && npm publish",
     "publish-major": "npm run release && npm version major && npm publish",
     "test": "mocha ./tests/**/*-tests.js",
-    "cover": "nyc --reporter=html npm run test"
+    "cover": "nyc --reporter=html npm run test",
+    "cover:ci": "nyc --reporter=lcovonly --reporter=text-summary npm run test"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

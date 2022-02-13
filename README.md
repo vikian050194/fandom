@@ -4,6 +4,7 @@
 [![Maintenance status][status-badge]][status-url]
 [![NPM version][npm-badge]][npm-url]
 [![Downloads per week][downloads-badge]][downloads-url]
+[![Code coverage][coverage-badge]][coverage-url]
 
 ## Attention
 
@@ -61,3 +62,6 @@ container.append(...children);
 
 [downloads-url]: https://www.npmjs.com/package/fandom
 [downloads-badge]: https://img.shields.io/npm/dw/fandom
+
+[coverage-url]: https://codecov.io/gh/vikian050194/fandom
+[coverage-badge]: https://img.shields.io/codecov/c/github/vikian050194/fandom
