@@ -15,7 +15,23 @@ describe("convert: one level", function () {
         assert.equal(domNode.tag, "div");
         assert.equal(domNode.children.length, 0);
     });
-    
+
+    it("one div and attributes", function () {
+        const nodes = [
+            new Node("div", { id: 42 })
+        ];
+
+        const actual = convert(nodes);
+
+        assert.equal(actual.length, 1);
+
+        const [domNode] = actual;
+
+        assert.equal(domNode.tag, "div");
+        assert.equal(domNode.id, 42);
+        assert.equal(domNode.children.length, 0);
+    });
+
     it("two div", function () {
         const nodes = [
             new Node("div"),

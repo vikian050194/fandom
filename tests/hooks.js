@@ -25,6 +25,10 @@ class MockDomElement {
     addEventListener = (action, handler) => {
         this[`on${action}`] = handler;
     };
+
+    setAttribute = (key, value) => {
+        this[key] = value;
+    };
 }
 
 export const mochaHooks = {

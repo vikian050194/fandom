@@ -30,4 +30,19 @@ describe("couturier: handler", function () {
 
         assert.equal(handler, hoverHandler);
     });
+
+    it("change", function () {
+        const changeHandler = () => {};
+        const actual = couturier.div().onChange(changeHandler).close().done();
+
+        assert.equal(actual.length, 1);
+
+        const [actualNode] = actual;
+
+        assert.equal(actualNode.handlers.size, 1);
+
+        const handler = actualNode.handlers.get("change");
+
+        assert.equal(handler, changeHandler);
+    });
 });

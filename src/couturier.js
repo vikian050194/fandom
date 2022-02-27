@@ -10,44 +10,47 @@ export class Couturier {
         return this;
     }
 
-    open(tag, attributes){
+    open(tag, attributes) {
         this.state.insert(new Node(tag, attributes));
         return this;
     }
 
-    text(value){
+    text(value) {
         this.state.setText(value);
         return this;
     }
 
-    _addHandler(action, handler) {
+    on(action, handler) {
         this.state.handle(action, handler);
     }
 
     onClick(handler) {
-        this._addHandler("click", handler);
+        this.on("click", handler);
+        return this;
+    }
 
+    onChange(handler) {
+        this.on("change", handler);
         return this;
     }
 
     onHover(handler) {
-        this._addHandler("mouseenter", handler);
-
+        this.on("mouseenter", handler);
         return this;
     }
 
-    close(){
+    close() {
         this.state.jump();
         return this;
     }
 
     done() {
-        if(this.state.isRoot){
+        if (this.state.isRoot) {
             const result = this.state.index.nodes;
             this.state = new State();
             return result;
         }
-        
+
         throw new Error("it is not root");
     }
 
@@ -63,6 +66,11 @@ export class Couturier {
 
     h1(attributes) {
         this.open("h1", attributes);
+        return this;
+    }
+
+    button(attributes) {
+        this.open("button", attributes);
         return this;
     }
 

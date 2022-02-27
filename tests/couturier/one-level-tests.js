@@ -49,6 +49,18 @@ describe("couturier: one level", function () {
         assert.equal(actualNode.nodes.length, 0);
     });
 
+    it("button", function () {
+        const actual = couturier.button().close().done();
+
+        assert.equal(actual.length, 1);
+
+        const [actualNode] = actual;
+
+        assert.equal(actualNode.tag, "button");
+        assert.deepEqual(actualNode.attributes, {});
+        assert.equal(actualNode.nodes.length, 0);
+    });
+
     it("two div", function () {
         const actual = couturier.div().close().div().close().done();
 
@@ -69,5 +81,11 @@ describe("couturier: one level", function () {
 
         assert.equal(node1.tag, "div");
         assert.equal(node2.tag, "span");
+    });
+
+    it("is not root", function () {
+        couturier.div();
+
+        assert.throws(() => couturier.done(), Error, "it is not root");
     });
 });
