@@ -1,7 +1,7 @@
 {
   "name": "fandom",
   "description": "Simple and quite elegant builder for DOM nodes",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": false,
   "main": "build/bundle.js",
   "files": [
