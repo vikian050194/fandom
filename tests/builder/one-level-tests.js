@@ -1,8 +1,8 @@
 import assert from "assert";
 
-describe("couturier: one level", function () {
+describe("builder: one level", function () {
     it("custom", function () {
-        const actual = couturier.open("custom").close().done();
+        const actual = builder.open("custom").close().done();
 
         assert.equal(actual.length, 1);
 
@@ -14,7 +14,7 @@ describe("couturier: one level", function () {
     });
 
     it("div", function () {
-        const actual = couturier.div().close().done();
+        const actual = builder.div().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -26,7 +26,7 @@ describe("couturier: one level", function () {
     });
 
     it("span", function () {
-        const actual = couturier.span().close().done();
+        const actual = builder.span().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -38,7 +38,7 @@ describe("couturier: one level", function () {
     });
 
     it("h1", function () {
-        const actual = couturier.h1().close().done();
+        const actual = builder.h1().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -50,7 +50,7 @@ describe("couturier: one level", function () {
     });
 
     it("button", function () {
-        const actual = couturier.button().close().done();
+        const actual = builder.button().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -62,7 +62,7 @@ describe("couturier: one level", function () {
     });
 
     it("two div", function () {
-        const actual = couturier.div().close().div().close().done();
+        const actual = builder.div().close().div().close().done();
 
         assert.equal(actual.length, 2);
 
@@ -73,7 +73,7 @@ describe("couturier: one level", function () {
     });
 
     it("div and span", function () {
-        const actual = couturier.div().close().span().close().done();
+        const actual = builder.div().close().span().close().done();
 
         assert.equal(actual.length, 2);
 
@@ -84,8 +84,8 @@ describe("couturier: one level", function () {
     });
 
     it("is not root", function () {
-        couturier.div();
+        builder.div();
 
-        assert.throws(() => couturier.done(), Error, "it is not root");
+        assert.throws(() => builder.done(), Error, "it is not root");
     });
 });

@@ -1,8 +1,8 @@
 import assert from "assert";
 
-describe("couturier: text", function () {
+describe("builder: text", function () {
     it("div with text", function () {
-        const actual = couturier.div().text("test").close().done();
+        const actual = builder.div().text("test").close().done();
 
         assert.equal(actual.length, 1);
 

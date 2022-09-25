@@ -1,4 +1,4 @@
-import { Couturier, convert, insert, replace } from "../src";
+import { Builder, convert, insert, replace } from "../src";
 import { Node } from "../src/state";
 
 class MockDomElement {
@@ -54,7 +54,7 @@ export const mochaHooks = {
     },
 
     beforeEach(done) {
-        global.couturier = new Couturier();
+        global.builder = new Builder();
 
         done();
     }

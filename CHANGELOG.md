@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2022-09-25
+
+### Changed
+
+- Rename `Couturier` to `Builder`
+
 ## [0.4.0] - 2022-02-27
 
 ### Added

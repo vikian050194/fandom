@@ -1,8 +1,8 @@
 import assert from "assert";
 
-describe("couturier: two levels", function () {
+describe("builder: two levels", function () {
     it("div into div", function () {
-        const actual = couturier.div().div().close().close().done();
+        const actual = builder.div().div().close().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -18,7 +18,7 @@ describe("couturier: two levels", function () {
     });
 
     it("span into div", function () {
-        const actual = couturier.div().span().close().close().done();
+        const actual = builder.div().span().close().close().done();
 
         assert.equal(actual.length, 1);
 
@@ -34,7 +34,7 @@ describe("couturier: two levels", function () {
     });
 
     it("two h1 into div", function () {
-        const actual = couturier.div().h1().close().h1().close().close().done();
+        const actual = builder.div().h1().close().h1().close().close().done();
 
         assert.equal(actual.length, 1);
 

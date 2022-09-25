@@ -29,22 +29,22 @@ Let's make something lightweight and nice
 ## Usage
 
 ```javascript
-import { Couturier, convert, insert, replace } from "fandom";
+import { Builder, convert, insert, replace } from "fandom";
 
 const container = document.querySelector("#root");
 
-const couturier = new Couturier();
+const builder = new Builder();
 const elements = [3, 14, 15, 9, 26];
 
-couturier.div({ class: "list" });
+builder.div({ class: "list" });
 
 for (let i = 0; i < elements.length; i++) {
-    couturier.div({ id: elements[i] }).text(`number ${elements[i]}`).close();
+    builder.div({ id: elements[i] }).text(`number ${elements[i]}`).close();
 }
 
-couturier.close();
+builder.close();
 
-const model = couturier.done();
+const model = builder.done();
 const domElements = convert(model);
 
 replace(container, domElements);

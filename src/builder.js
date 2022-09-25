@@ -1,6 +1,6 @@
 import { State, Node } from "./state";
 
-export class Couturier {
+export class Builder {
     constructor() {
         this.state = new State();
     }
