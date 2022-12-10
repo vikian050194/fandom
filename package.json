@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/vikian050194/fandom",
   "scripts": {
+    "lint": "eslint src --config=.eslintrc --ext=js",
     "cleanup": "rm -rf build",
     "preversion": "npm test",
     "postversion": "git push && git push --tags ",
