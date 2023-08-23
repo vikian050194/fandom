@@ -78,4 +78,11 @@ export class Builder {
         this.just("input", attributes);
         return this;
     }
+
+    push(models) {
+        for (const model of models) {
+            this.state.add(model);
+        }
+        return this;
+    }
 }

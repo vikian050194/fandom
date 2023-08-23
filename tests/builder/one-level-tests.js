@@ -88,4 +88,16 @@ describe("builder: one level", function () {
 
         assert.throws(() => builder.done(), Error, "it is not root");
     });
+
+    it("push", function () {
+        const modelFotPush = builder.button().close().done();
+
+        const actual = builder.push(modelFotPush).done();
+
+        const [actualNode] = actual;
+
+        assert.equal(actualNode.tag, "button");
+        assert.deepEqual(actualNode.attributes, {});
+        assert.equal(actualNode.nodes.length, 0);
+    });
 });

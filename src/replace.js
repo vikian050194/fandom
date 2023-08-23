@@ -1,9 +1,7 @@
+import { clear } from "./clear";
 import { insert } from "./insert";
 
 export const replace = (container, elements) => {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-
+    clear(container);
     insert(container, elements);
 };

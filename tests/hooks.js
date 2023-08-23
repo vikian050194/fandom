@@ -1,4 +1,4 @@
-import { Builder, convert, insert, replace } from "../src";
+import { Builder, convert, clear, insert, replace } from "../src";
 import { Node } from "../src/state";
 
 class MockDomElement {
@@ -45,6 +45,7 @@ export const mochaHooks = {
         };
 
         global.convert = convert;
+        global.clear = clear;
         global.insert = insert;
         global.replace = replace;
 

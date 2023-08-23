@@ -3,6 +3,7 @@
         "builder": "readonly",
         "convert": "readonly",
         "insert": "readonly",
-        "replace": "readonly"
+        "replace": "readonly",
+        "clear": "readonly"
     }
 }

@@ -18,20 +18,14 @@ It has quite limited abilities but it's good enough in simple cases
 
 ## Motivation
 
-I'm a bit tired that some developers use heavy tools (like React, Vue or Angular) everywhere and all the time even if application is so tiny
-
-Those tools are everywhere around us
-
-It's over-engineering and a bit stupid from my point of view
-
-Let's make something lightweight and nice
+I'm a bit tired that some developers use heavy tools (like React, Vue or Angular) everywhere and all the time even if application is so tiny. Those tools are everywhere around us. It's over-engineering and a bit stupid from my point of view. Let's make something lightweight and nice.
 
 ## Usage
 
 ```javascript
-import { Builder, convert, insert, replace } from "fandom";
+import { Builder, convert, clear, insert, replace } from "fandom";
 
-const container = document.querySelector("#root");
+const $root = document.querySelector("#root");
 
 const builder = new Builder();
 const elements = [3, 14, 15, 9, 26];
@@ -47,8 +41,24 @@ builder.close();
 const model = builder.done();
 const domElements = convert(model);
 
-replace(container, domElements);
+replace($root, domElements);
+
+const $notifications = document.querySelector("#notifications");
+clear($notifications);
 ```
+
+## Tests
+
+### Packages
+
+- `mocha` is used for unit testing
+- `nyc` - for coverage
+
+### How to run
+
+- `npm test` - run unit tests
+- `npm run cover` - run code coverage
+- `npm run test:ui` - run e2e tests
 
 [status-url]: https://github.com/vikian050194/fandom/pulse
 [status-badge]: https://img.shields.io/github/last-commit/vikian050194/fandom.svg
