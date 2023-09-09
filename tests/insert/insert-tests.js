@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 describe("insert", function () {
     it("no elements", function () {

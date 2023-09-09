@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 describe("convert: class and classList", function () {
     it("class", function () {

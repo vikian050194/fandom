@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 describe("convert: one level", function () {
     it("one div", function () {

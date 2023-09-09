@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 describe("builder: text", function () {
     it("div with text", function () {

@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 describe("builder: one level", function () {
     it("custom", function () {

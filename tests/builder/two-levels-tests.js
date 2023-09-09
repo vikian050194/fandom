@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 describe("builder: two levels", function () {
     it("div into div", function () {

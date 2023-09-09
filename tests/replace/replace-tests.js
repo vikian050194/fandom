@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 describe("replace", function () {
     it("no elements before - no elements after", function () {
