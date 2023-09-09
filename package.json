@@ -25,7 +25,7 @@
   "homepage": "https://github.com/vikian050194/fandom",
   "scripts": {
     "lint": "eslint src --config=.eslintrc --ext=js",
-    "preversion": "npm lint && npm test",
+    "preversion": "npm run lint && npm test",
     "postversion": "git push && git push --tags ",
     "publish-rc": "npm version prerealese && npm publish",
     "publish-patch": "npm version patch && npm publish",
