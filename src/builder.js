@@ -39,8 +39,10 @@ export class Builder {
         return this;
     }
 
-    close() {
-        this.state.jump();
+    close(count = 1) {
+        for (let i = 0; i < count; i++) {
+            this.state.jump();
+        }
         return this;
     }
 
@@ -51,7 +53,7 @@ export class Builder {
             return result;
         }
 
-        throw new Error("it is not root");
+        throw new Error("Wrong state: there are some unclosed items");
     }
 
     div(attributes) {

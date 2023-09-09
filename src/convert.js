@@ -3,6 +3,15 @@ import { insert } from "./insert";
 const createElement = (tag, attributes) => {
     const element = window.document.createElement(tag);
 
+    if (attributes.classList && attributes.class) {
+        throw new Error("Use either classList or class");
+    }
+
+    if (attributes.classList) {
+        attributes.class = attributes.classList.join(" ");
+        delete attributes["classList"];
+    }
+
     for (let key in attributes) {
         element.setAttribute(key, attributes[key]);
     }

@@ -2,13 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
             "name": "Debug tests",
             "type": "node",
             "request": "launch",
@@ -17,13 +10,15 @@
             "args": [
                 "${file}",
                 "--colors",
-                "--no-timeouts"
+                "--no-timeouts",
+                "--require", "@babel/register"
             ],
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": null,
             "env": {
                 "NODE_ENV": "testing"
-            }
+            },
+            "sourceMaps": true
         }
     ]
 }
