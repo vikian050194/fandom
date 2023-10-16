@@ -1,7 +1,7 @@
 {
   "name": "fandom",
   "description": "Simple and quite elegant builder for DOM nodes",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": false,
   "main": "src/index.js",
   "files": [

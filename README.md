@@ -33,7 +33,7 @@ const elements = [3, 14, 15, 9, 26];
 builder.div({ class: "list" });
 
 for (let i = 0; i < elements.length; i++) {
-    builder.div({ id: elements[i] }).text(`number ${elements[i]}`).close();
+    builder.div({ id: elements[i], style: { color: "red" } }).text(`number ${elements[i]}`).close();
 }
 
 builder.close();
