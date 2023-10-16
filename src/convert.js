@@ -12,6 +12,13 @@ const createElement = (tag, attributes) => {
         delete attributes["classList"];
     }
 
+    if (attributes.style) {
+        for (let key in attributes.style) {
+            element.style[key] = attributes.style[key];
+        }
+        delete attributes["style"];
+    }
+
     for (let key in attributes) {
         element.setAttribute(key, attributes[key]);
     }

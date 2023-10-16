@@ -1,8 +1,8 @@
 export class Node {
-    constructor(tag, attributes = {}, nodes = []) {
+    constructor(tag, attributes = {}) {
         this.tag = tag;
         this.attributes = attributes;
-        this.nodes = nodes;
+        this.nodes = [];
         this.text = null;
         this.handlers = new Map();
     }

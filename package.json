@@ -1,7 +1,7 @@
 {
   "name": "fandom",
   "description": "Simple and quite elegant builder for DOM nodes",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": false,
   "main": "src/index.js",
   "files": [
@@ -25,13 +25,7 @@
   "homepage": "https://github.com/vikian050194/fandom",
   "scripts": {
     "lint": "eslint src --config=.eslintrc --ext=js",
-    "preversion": "npm run lint && npm test",
-    "postversion": "git push && git push --tags ",
-    "publish-rc": "npm version prerealese && npm publish",
-    "publish-patch": "npm version patch && npm publish",
-    "publish-minor": "npm version minor && npm publish",
-    "publish-major": "npm version major && npm publish",
-    "test": "mocha ./tests/**/*-tests.js --require @babel/register",
+    "test": "mocha './tests/**/*-tests.js' --require @babel/register",
     "cover": "nyc --reporter=text-summary --reporter=html npm run test",
     "cover:ci": "nyc --reporter=lcovonly npm run test"
   },

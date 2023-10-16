@@ -5,6 +5,7 @@ class MockDomElement {
     constructor(tag) {
         this.tag = tag;
         this.children = [];
+        this.style = {};
     }
 
     get firstChild() {
