@@ -40,6 +40,10 @@ export class State {
         this.index.handlers.set(action, handler);
     }
 
+    static handle(node, action, handler){
+        node.handlers.set(action, handler);
+    }
+
     jump(){
         this.index = this.stack.pop();
     }

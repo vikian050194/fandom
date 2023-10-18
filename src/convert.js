@@ -50,10 +50,8 @@ export const convert = (nodes) => {
         }
 
         // TODO extract method
-        if (node.handlers.size) {
-            for (const [action, handler] of node.handlers) {
-                element.addEventListener(action, handler);
-            }
+        for (const [action, handler] of node.handlers) {
+            element.addEventListener(action, handler);
         }
     }
 

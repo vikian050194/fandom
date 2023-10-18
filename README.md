@@ -45,6 +45,10 @@ replace($root, domElements);
 
 const $notifications = document.querySelector("#notifications");
 clear($notifications);
+
+const changeHandler = (e) = console.log(e.target.value);
+builded.input(null, {change: changeHandler});
+insert($root, convert(builder.done()));
 ```
 
 ## Tests

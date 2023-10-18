@@ -5,13 +5,24 @@ export class Builder {
         this.state = new State();
     }
 
-    just(tag, attributes) {
-        this.state.add(new Node(tag, attributes));
+    just(tag, attributes, handlers) {
+        const node = new Node(tag, attributes);
+        this.state.add(node);
+        if (handlers) {
+            for (const key in handlers) {
+                State.handle(node, key, handlers[key]);
+            }
+        }
         return this;
     }
 
-    open(tag, attributes) {
+    open(tag, attributes, handlers) {
         this.state.insert(new Node(tag, attributes));
+        if (handlers) {
+            for (const key in handlers) {
+                this.on(key, handlers[key]);
+            }
+        }
         return this;
     }
 
@@ -56,28 +67,28 @@ export class Builder {
         throw new Error("Wrong state: there are some unclosed items");
     }
 
-    div(attributes) {
-        this.open("div", attributes);
+    div(attributes, handlers) {
+        this.open("div", attributes, handlers);
         return this;
     }
 
-    span(attributes) {
-        this.open("span", attributes);
+    span(attributes, handlers) {
+        this.open("span", attributes, handlers);
         return this;
     }
 
-    h1(attributes) {
-        this.open("h1", attributes);
+    h1(attributes, handlers) {
+        this.open("h1", attributes, handlers);
         return this;
     }
 
-    button(attributes) {
-        this.open("button", attributes);
+    button(attributes, handlers) {
+        this.open("button", attributes, handlers);
         return this;
     }
 
-    input(attributes) {
-        this.just("input", attributes);
+    input(attributes, handlers) {
+        this.just("input", attributes, handlers);
         return this;
     }
 
