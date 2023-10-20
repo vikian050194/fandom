@@ -1,4 +1,4 @@
-import { State, Node } from "./state";
+import { State, Node } from "./state.js";
 
 export class Builder {
     constructor() {
@@ -96,6 +96,11 @@ export class Builder {
         for (const model of models) {
             this.state.add(model);
         }
+        return this;
+    }
+
+    bind(binder) {
+        this.state.bind(binder);
         return this;
     }
 }

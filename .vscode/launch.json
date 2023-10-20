@@ -11,7 +11,6 @@
                 "${file}",
                 "--colors",
                 "--no-timeouts",
-                "--require", "@babel/register"
             ],
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": null,

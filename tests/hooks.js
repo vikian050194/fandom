@@ -1,5 +1,5 @@
-import { Builder, convert, clear, insert, replace } from "../src";
-import { Node } from "../src/state";
+import { Builder, convert, clear, insert, replace } from "../src/index.js";
+import { Node } from "../src/state.js";
 
 class MockDomElement {
     constructor(tag) {

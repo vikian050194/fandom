@@ -1,5 +1,6 @@
-export { Builder } from "./builder";
-export * from "./convert";
-export * from "./insert";
-export * from "./replace";
-export * from "./clear";
+export { Builder } from "./builder.js";
+export { Binder } from "./binder.js";
+export * from "./convert.js";
+export * from "./insert.js";
+export * from "./replace.js";
+export * from "./clear.js";

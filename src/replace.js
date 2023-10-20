@@ -1,5 +1,5 @@
-import { clear } from "./clear";
-import { insert } from "./insert";
+import { clear } from "./clear.js";
+import { insert } from "./insert.js";
 
 export const replace = (container, elements) => {
     clear(container);

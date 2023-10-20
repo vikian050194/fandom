@@ -1,7 +1,8 @@
 {
   "name": "fandom",
+  "type": "module",
   "description": "Simple and quite elegant builder for DOM nodes",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": false,
   "main": "src/index.js",
   "files": [
@@ -25,18 +26,18 @@
   "homepage": "https://github.com/vikian050194/fandom",
   "scripts": {
     "lint": "eslint src --config=.eslintrc --ext=js",
-    "test": "mocha './tests/**/*-tests.js' --require @babel/register",
-    "cover": "nyc --reporter=text-summary --reporter=html npm run test",
-    "cover:ci": "nyc --reporter=lcovonly npm run test"
+    "test": "mocha './tests/**/*-tests.js'",
+    "cover": "c8 --reporter=text-summary --reporter=html npm run test",
+    "cover:ci": "c8 --reporter=lcovonly npm run test"
   },
   "devDependencies": {
     "@babel/cli": "7.22.15",
     "@babel/core": "7.22.15",
     "@babel/eslint-parser": "7.22.15",
-    "@babel/preset-env": "7.22.15",
-    "@babel/register": "7.22.15",
-    "eslint": "8.48.0",
-    "mocha": "10.2.0",
-    "nyc": "15.1.0"
+    "@babel/eslint-plugin": "7.22.10",
+    "c8": "8.0.1",
+    "eslint": "8.50.0",
+    "eslint-plugin-import": "2.28.1",
+    "mocha": "10.2.0"
   }
 }

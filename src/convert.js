@@ -1,4 +1,4 @@
-import { insert } from "./insert";
+import { insert } from "./insert.js";
 
 const createElement = (tag, attributes) => {
     const element = window.document.createElement(tag);
@@ -52,6 +52,11 @@ export const convert = (nodes) => {
         // TODO extract method
         for (const [action, handler] of node.handlers) {
             element.addEventListener(action, handler);
+        }
+
+        // TODO extract method
+        for (const binder of node.binders) {
+            binder.init(element);
         }
     }
 

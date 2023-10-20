@@ -5,6 +5,7 @@ export class Node {
         this.nodes = [];
         this.text = null;
         this.handlers = new Map();
+        this.binders = [];
     }
 }
 
@@ -32,23 +33,27 @@ export class State {
         this.index = node;
     }
 
-    setText(value){
+    setText(value) {
         this.index.text = value;
     }
 
-    handle(action, handler){
+    handle(action, handler) {
         this.index.handlers.set(action, handler);
     }
 
-    static handle(node, action, handler){
+    static handle(node, action, handler) {
         node.handlers.set(action, handler);
     }
 
-    jump(){
+    jump() {
         this.index = this.stack.pop();
     }
 
-    get isRoot(){
+    get isRoot() {
         return this.stack.length === 0;
+    }
+
+    bind(binder) {
+        this.index.binders.push(binder);
     }
 }

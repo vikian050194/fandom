@@ -1,6 +1,5 @@
 {
     "require": [
-        "@babel/register",
         "tests/hooks.js"
     ]
 }
