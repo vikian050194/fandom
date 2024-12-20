@@ -92,6 +92,12 @@ export class Builder {
         return this;
     }
 
+    checkbox(attributes, handlers) {
+        const checkboxAttributes = { ...attributes, type: "checkbox" };
+        this.just("input", checkboxAttributes, handlers);
+        return this;
+    }
+
     push(models) {
         for (const model of models) {
             this.state.add(model);

@@ -10,7 +10,7 @@ describe("builder: just", function () {
 
         assert.equal(actualNode.tag, "custom");
     });
-    
+
     it("input", function () {
         const actual = builder.input().done();
 
@@ -19,5 +19,16 @@ describe("builder: just", function () {
         const [actualNode] = actual;
 
         assert.equal(actualNode.tag, "input");
+    });
+
+    it("checkbox", function () {
+        const actual = builder.checkbox().done();
+
+        assert.equal(actual.length, 1);
+
+        const [actualNode] = actual;
+
+        assert.equal(actualNode.tag, "input");
+        assert.deepEqual(actualNode.attributes, { type: "checkbox" });
     });
 });
