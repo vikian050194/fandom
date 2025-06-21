@@ -8,13 +8,15 @@
 
 ## Attention
 
-Until `v1.0.0` is released any breaking changes could be introduced without major version bumping
+Until `v1.0.0` is released any breaking changes could be introduced without major version bumping.
 
 ## About
 
-**fandom** is a lightweight vanilla package that helps build DOM nodes
+**fandom** is a lightweight vanilla package that helps build DOM nodes.
 
-It has quite limited abilities but it's good enough in simple cases
+It has quite limited abilities but it's good enough in simple cases.
+
+By the way, there is [todo list](./TODO.md).
 
 ## Motivation
 
